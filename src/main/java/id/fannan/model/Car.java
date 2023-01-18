@@ -37,6 +37,18 @@ public class Car extends Vehicle {
         System.out.println("Wheel: " + getWheel());
         System.out.println("Type: " + getType());
         System.out.println("Entertainment System:" + getEntertainmentSystem());
+        turnOnEntertainmentSystem();
+        if (getType().equalsIgnoreCase("Supercar")) {
+            useNitro();
+        }
+
     }
 
+    public void turnOnEntertainmentSystem() {
+        System.out.println("Turning on entertainment system...");
+    }
+
+    public void useNitro() {
+        System.out.println("Boosting!");
+    }
 }

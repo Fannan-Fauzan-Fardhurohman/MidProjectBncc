@@ -1,11 +1,16 @@
 package id.fannan.model;
 
+import java.util.Scanner;
+
 public class Motorcycle extends Vehicle {
     private String type;
     private int helmet;
 
-    public Motorcycle(String vehicleType,String brand, String name, String licenseNumber, int topSpeed, int gasCap, int wheel, String type, int helmet) {
-        super(vehicleType,brand, name, licenseNumber, topSpeed, gasCap, wheel);
+    private int price;
+
+
+    public Motorcycle(String vehicleType, String brand, String name, String licenseNumber, int topSpeed, int gasCap, int wheel, String type, int helmet) {
+        super(vehicleType, brand, name, licenseNumber, topSpeed, gasCap, wheel);
         this.type = type;
         this.helmet = helmet;
     }
@@ -26,6 +31,14 @@ public class Motorcycle extends Vehicle {
         this.helmet = helmet;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public void showInfo() {
         System.out.println("Brand: " + getBrand());
@@ -36,5 +49,21 @@ public class Motorcycle extends Vehicle {
         System.out.println("Wheel: " + getWheel());
         System.out.println("Type: " + getType());
         System.out.println("Helmet: " + getHelmet());
+        stand();
+        priceCalculate();
     }
+
+
+    public void stand() {
+        System.out.println(getName() + " is standing!");
+    }
+
+    public void priceCalculate() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Price : ");
+        int price = input.nextInt();
+        setPrice(price);
+        System.out.println("Price : " + getPrice());
+
+}
 }

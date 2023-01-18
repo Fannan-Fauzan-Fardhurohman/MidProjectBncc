@@ -76,7 +76,12 @@ public class main {
                         System.out.println("Jumlah Entertainment System minimal 1");
                         continue;
                     }
-                    vehicles.add(new Car(vehicleType, brand, name, licenseNumber, topSpeed, gasCap, wheel, type, entertainmentSystem));
+                    Car car = new Car(vehicleType, brand, name, licenseNumber, topSpeed, gasCap, wheel, type, entertainmentSystem);
+                    if (vehicleType.equalsIgnoreCase("Supercar")) {
+                        car.useNitro();
+                    }
+                    vehicles.add(car);
+                    car.turnOnEntertainmentSystem();
                 } else if (vehicleType.equalsIgnoreCase("motorcycle")) {
                     System.out.print("Jenis Tipe Kendaraan (Automatic / Manual): ");
                     String type = input.next();
@@ -86,7 +91,9 @@ public class main {
                         System.out.println("Jumlah Helm minimal 1");
                         continue;
                     }
-                    vehicles.add(new Motorcycle(vehicleType, brand, name, licenseNumber, topSpeed, gasCap, wheel, type, helmet));
+                    Motorcycle motorcycle = new Motorcycle(vehicleType, brand, name, licenseNumber, topSpeed, gasCap, wheel, type, helmet);
+                    vehicles.add(motorcycle);
+                    motorcycle.stand();
                 } else {
                     System.out.println("Tipe kendaraan tidak valid");
                 }
@@ -111,6 +118,7 @@ public class main {
                     int vehicleNumber = input.nextInt();
                     if (vehicleNumber > 0 && vehicleNumber <= vehicles.size()) {
                         vehicles.get(vehicleNumber - 1).showInfo();
+
                         System.out.println();
                     } else {
                         System.out.println("Nomor kendaraan tidak valid");
